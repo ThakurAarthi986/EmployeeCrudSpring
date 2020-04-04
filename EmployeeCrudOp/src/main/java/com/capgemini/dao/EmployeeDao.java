@@ -29,12 +29,19 @@ public class EmployeeDao implements EmployeeDaoI{
 	}
 
 	@Override
+	//public Employee updateEmployee(Employee employee) {
+		//Employee emp = entityManager.find(Employee.class, employee.getEmpid());
+		//emp.setEmpname(employee.getEmpname());
+		//emp.setEmpsal(employee.getEmpsal());
+		//entityManager.merge(emp);
+		//return emp;
+	//}
 	public Employee updateEmployee(Employee employee) {
-		Employee emp = entityManager.find(Employee.class, employee.getEmpid());
-		emp.setEmpname(employee.getEmpname());
-		emp.setEmpsal(employee.getEmpsal());
-		entityManager.merge(emp);
-		return emp;
+		//Employee emp=new Employee();
+		employee.setEmpname(employee.getEmpname());
+		employee.setEmpsal(employee.getEmpsal());
+		employee=entityManager.merge(employee);
+		return employee;
 	}
 	
 	@Override
